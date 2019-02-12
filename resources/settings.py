@@ -124,7 +124,7 @@ DATABASES = {
         'NAME': 'resources',
         'USER': 'root',
         'PASSWORD': '011329',
-        'HOST': 'localhost',
+        'HOST': 'mysql_db_master',
         'PORT': 3306
     }
 }
@@ -132,7 +132,7 @@ DATABASES = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6377/1",
+        "LOCATION": "redis://redisdb:6377/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -179,7 +179,7 @@ STATIC_URL = '/static/'
 
 # rabbit mq
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
-BROKER_URL = 'amqp://guest:guest@127.0.0.1:5672//'
+BROKER_URL = 'amqp://guest:guest@rabbitmq:5672//'
 CELERY_RESULT_BACKEND = 'django-db'
 DJANGO_CELERY_RESULTS_TASK_ID_MAX_LENGTH = 191
 
@@ -190,7 +190,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6377)],
+            "hosts": [('redisdb', 6377)],
         },
     },
 }

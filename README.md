@@ -13,6 +13,7 @@ The backend for resource-ret. https://github.com/jianghaibo12138/resource-ret
     - websocket实现 [django channel](https://channels.readthedocs.io/en/latest/, "django channel")
 
 - Todo
+    - fix 由django-celery []()引起的 TypeError: can only concatenate tuple (not "NoneType") to tuple 错误导致celery无法启动
     - 项目docker化, 包括django, redis, mysql, rabbitmq等
     - 完善订单流程
     - 测试支付宝支付流程
