@@ -3,14 +3,14 @@ The backend for resource-ret. https://github.com/jianghaibo12138/resource-ret
 
 ### 为 [resource-ret](https://github.com/jianghaibo12138/resource-ret, "resource-ret") 的后台服务 ###
 - 项目介绍
-    - 后台框架 [django](, "django")
-    - restful框架 [django-restframework](, "django-restframework")
-    - 异步组件框架 [celery](, "celery")
-    - 消息中间件 [rabbitmq](, "rabbitmq")
-    - 数据库 [mysql](, "mysql")
-    - 数据缓存服务 [redis](, "redis")
-    - 用户权限 [django-restframework.authtoken](, "django-restframework.authtoken")
-    - websocket实现 [django channel](, "django channel")
+    - 后台框架 [django](https://docs.djangoproject.com/zh-hans/2.1/, "django")
+    - restful框架 [django-restframework](https://www.django-rest-framework.org/, "django-restframework")
+    - 异步组件框架 [celery](http://docs.jinkan.org/docs/celery/, "celery")
+    - 消息中间件 [rabbitmq](https://www.rabbitmq.com/getstarted.html, "rabbitmq")
+    - 数据库 [mysql](https://www.mysql.com/cn/, "mysql"), 并支持读写分离
+    - 数据缓存服务 [redis](https://django-redis-chs.readthedocs.io/zh_CN/latest/, "redis")
+    - 用户权限 [django-restframework.authtoken](https://www.django-rest-framework.org/tutorial/4-authentication-and-permissions/, "django-restframework.authtoken")
+    - websocket实现 [django channel](https://channels.readthedocs.io/en/latest/, "django channel")
 
 - Todo
     - 项目docker化, 包括django, redis, mysql, rabbitmq等
@@ -22,9 +22,9 @@ The backend for resource-ret. https://github.com/jianghaibo12138/resource-ret
 
 - 环境搭建&运行
     - 环境搭建
-        - 使用pipenv
+        - 使用 [pipenv](https://github.com/pypa/pipenv, "pipenv")
             - git clone && cd resource-ret-backend && pipenv --python=python3 && pipenv install 
-        - 使用virtualenv
+        - 使用 [virtualenv](https://virtualenv.pypa.io/en/latest/, "virtualenv")
             - git clone && cd resource-ret-backend && virtualenv -p /usr/local/bin/python3 resource-ret-backend-env && pip install -r requirements.txt
         
     - 运行
