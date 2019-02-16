@@ -23,19 +23,34 @@ The backend for resource-ret. https://github.com/jianghaibo12138/resource-ret
     - supervisor + uwsgi + nginx 拉起整个项目
 
 - 环境搭建&运行
-    - 环境搭建
-        - 使用 [pipenv](https://github.com/pypa/pipenv, "pipenv")
-            - git clone && cd resource-ret-backend && pipenv --python=python3 && pipenv install 
-        - 使用 [virtualenv](https://virtualenv.pypa.io/en/latest/, "virtualenv")
-            - git clone && cd resource-ret-backend && virtualenv -p /usr/local/bin/python3 resource-ret-backend-env && pip install -r requirements.txt
-        
-    - 运行
-        - django服务
-            - python manage.py runserver 0.0.0.0:8080
+    - 虚拟环境
+        - 环境搭建
+            - 使用 [pipenv](https://github.com/pypa/pipenv, "pipenv")
+                - git clone && cd resource-ret-backend && pipenv --python=python3 && pipenv install 
+            - 使用 [virtualenv](https://virtualenv.pypa.io/en/latest/, "virtualenv")
+                - git clone && cd resource-ret-backend && virtualenv -p /usr/local/bin/python3 resource-ret-backend-env && pip install -r requirements.txt
             
-        - celery服务
-            - python manage.py celery worker -l info
-    
+        - 运行
+            - django服务
+                - python manage.py runserver 0.0.0.0:8080
+                
+            - celery服务
+                - python manage.py celery worker -l info
+    - docker
+        - 工具 [docker-compose](https://docs.docker.com/compose/, "docker compose")
+            ```bash
+              pip install docker-compose or sudo pip install docker-compose
+            ``` 
+        - 构建
+            ```bash
+              docker-compose build 
+            ```
+        - 运行
+            ```bash
+              docker-compose up
+            ```
+            
+            
 - 部署
     - todo... 
     
