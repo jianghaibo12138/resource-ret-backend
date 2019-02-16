@@ -11,8 +11,10 @@ libsqlite3-dev
 RUN pip install -U pip setuptools -i https://pypi.douban.com/simple
 
 ADD ./requirements.txt /resource-ret-backend/
+ADD ./packages /resource-ret-backend/
 
 RUN pip install -r /resource-ret-backend/requirements.txt -i https://pypi.douban.com/simple
+RUN python /resource-ret-backend/django-celery/setup.py install
 
 ADD . /resource-ret-backend
 # Django service

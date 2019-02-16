@@ -14,6 +14,7 @@ The backend for resource-ret. https://github.com/jianghaibo12138/resource-ret
 
 - Todo
     - fix 由django-celery []()引起的 TypeError: can only concatenate tuple (not "NoneType") to tuple 错误导致celery无法启动
+    - 系统派单模块 and 权重计算模块
     - 项目docker化, 包括django, redis, mysql, rabbitmq等
     - 完善订单流程
     - 测试支付宝支付流程
