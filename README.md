@@ -12,10 +12,12 @@ The backend for resource-ret. https://github.com/jianghaibo12138/resource-ret
     - 用户权限 [django-restframework.authtoken](https://www.django-rest-framework.org/tutorial/4-authentication-and-permissions/, "django-restframework.authtoken")
     - websocket实现 [django channel](https://channels.readthedocs.io/en/latest/, "django channel")
 
-- Todo
-    - fix 由django-celery []()引起的 TypeError: can only concatenate tuple (not "NoneType") to tuple 错误导致celery无法启动
+- Todo(√: 已经完成)
+    - fix 由django-celery []()引起的 TypeError: can only concatenate tuple (not "NoneType") to tuple 错误导致celery无法启动 √
     - 系统派单模块 and 权重计算模块
-    - 项目docker化, 包括django, redis, mysql, rabbitmq等
+    - 项目docker化, 包括django, redis, mysql, rabbitmq等 √
+    - docker-compose 配置文件区分production和development √
+    - 项目启动时load admin用户进入db 
     - 完善订单流程
     - 测试支付宝支付流程
     - 编写微信支付Api
