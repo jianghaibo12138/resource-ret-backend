@@ -20,6 +20,7 @@ from django.urls import path, include
 import application.controller.UserController as UserController
 import application.controller.OrderController as OrderController
 from application.controller import WasherController
+from application.controller import About
 
 from rest_framework.schemas import get_schema_view
 from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPIRenderer
@@ -66,6 +67,7 @@ urlpatterns = [
     url('api/v1/user/', include((user_patterns, app_name), namespace="user")),
     url('api/v1/order/', include((order_patterns, app_name), namespace="order")),
     url('api/v1/washer/', include((washer_patterns, app_name), namespace="washer")),
+    path('version/', About.Version.as_view(), name="about"),
 ]
 
 urlpatterns += [

@@ -5,8 +5,7 @@ RUN mkdir /resource-ret-backend
 WORKDIR /resource-ret-backend
 
 # Installing OS Dependencies
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-libsqlite3-dev
+RUN apt-get update && apt-get upgrade -y && apt-get install -y libsqlite3-dev
 
 RUN pip install -U pip setuptools -i https://pypi.douban.com/simple
 

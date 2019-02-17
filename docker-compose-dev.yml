@@ -1,0 +1,75 @@
+version: "3.1"
+
+networks: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: django
+    command: bash -c "python /resource-ret-backend/manage.py migrate && python /resource-ret-backend/manage.py runserver 0.0.0.0:8080"
+    volumes:
+      - .:/resource-ret-backend
+    ports:
+      - "8080:8080"
+    links:
+      - mysql_db_master
+      - rabbitmq
+      - redisdb
+
+  celery_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "python /resource-ret-backend/manage.py celery worker -l info"
+    volumes:
+      - .:/resource-ret-backend
+    environment:
+      - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
+    links:
+      - mysql_db_master
+      - rabbitmq
+      - redisdb
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+  redisdb:
+    image: redis
+    restart: always
+    volumes:
+      - ./redis/data:/data
+    ports:
+      - 6377:6379
+
+  mysql_db_master:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    hostname: mysql_db_master
+    restart: always
+    ports:
+      - 33061:3306
+    volumes:
+      - ./mysql/master/data:/var/lib/mysql
+      - ./mysql/master/cnf:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 011329
+      MYSQL_DATABASE: resources
+
+  mysql_db_slave:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    hostname: mysql_db_slave
+    restart: always
+    ports:
+      - 33062:3306
+    volumes:
+      - ./mysql/slave/data:/var/lib/mysql
+      - ./mysql/slave/cnf:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 011329
+      MYSQL_DATABASE: resources
