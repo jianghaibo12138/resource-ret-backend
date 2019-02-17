@@ -17,7 +17,9 @@ The backend for resource-ret. https://github.com/jianghaibo12138/resource-ret
     - 系统派单模块 and 权重计算模块
     - 项目docker化, 包括django, redis, mysql, rabbitmq等 √
     - docker-compose 配置文件区分production和development √
-    - 项目启动时load admin用户进入db 
+    - 项目启动时load admin用户进入db  √
+    - production 环境下 celery 由supervisor守护, 并且multi start
+    - production 环境自动切换 django settings 中的 DEBUG=False
     - 完善订单流程
     - 测试支付宝支付流程
     - 编写微信支付Api
