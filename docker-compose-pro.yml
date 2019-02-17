@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: Dockerfile
     hostname: django
-    command: bash -c "python /resource-ret-backend/manage.py migrate && python /resource-ret-backend/manage.py collectstatic --noinput && uwsgi /resource-ret-backend/uwsgi.ini"
+    command: bash /resource-ret-backend/scripts/production.sh
     volumes:
       - .:/resource-ret-backend
     links:

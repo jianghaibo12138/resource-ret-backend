@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile
     hostname: django
-    command: bash -c "python /resource-ret-backend/manage.py migrate && python /resource-ret-backend/manage.py runserver 0.0.0.0:8080"
+    command: bash /resource-ret-backend/scripts/development.sh
     volumes:
       - .:/resource-ret-backend
     ports:
