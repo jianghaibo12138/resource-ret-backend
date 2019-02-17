@@ -103,7 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-.idea/
 mysql/master/data
 mysql/slave/data
 redis/data
