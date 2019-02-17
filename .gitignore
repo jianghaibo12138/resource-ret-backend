@@ -108,3 +108,4 @@ mysql/master/data
 mysql/slave/data
 redis/data
 logs/
+static_root/
